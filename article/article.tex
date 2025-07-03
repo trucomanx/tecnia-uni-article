@@ -1,0 +1,127 @@
+% Setting up the document class for a two-column scientific article
+\documentclass[10pt, twocolumn]{article}
+
+% Including essential packages for formatting and structure
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+
+\usepackage{natbib}
+\usepackage{lipsum}
+\usepackage{geometry}
+\geometry{a4paper, margin=1in}
+
+\date{}
+\def\IndentSpace{20pt}
+\def\InterColumnSpace{0.6cm}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Valores configuraveis
+\def\TecniaDoiNumber{10.21754/tecnia.vxxxx.xxx}
+\def\TecniaVolDate{Vol\textbf{.xx} N°\textbf{y} \textbf{Enero-Junio 20xx}}
+\def\TecniaInitialPage{5}
+\def\TecniaAuthorEtAl{Author et al.}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+% indent
+\setlength{\parindent}{\IndentSpace}
+
+% Setting the column separation to 1cm
+\setlength{\columnsep}{\InterColumnSpace}
+
+% Configuring bibliography to use references.bib
+\bibliographystyle{plain}
+
+% Including titlesec for section title formatting
+\usepackage{titlesec}
+
+% Configuring section title format: number, point, space, title in normal size
+\titleformat{\section}
+  {\normalfont\normalsize\bfseries} % Font size same as normal text (12pt), bold
+  {\hspace{\IndentSpace}\thesection.\ } % Number, point, space
+  {0pt} % No additional indentation beyond paragraph indent
+  {\MakeUppercase} % No extra formatting after the title
+
+% Configuring subsection title format to match
+\titleformat{\subsection}
+  {\normalfont\normalsize\bfseries} % Font size same as normal text (12pt), bold
+  {\hspace{\IndentSpace}\thesubsection.\ } % Number, point, space
+  {0pt} % No additional indentation beyond paragraph indent
+  {\MakeUppercase} % No extra formatting after the title
+
+
+%%%%%
+% Including fancyhdr for custom footer
+\usepackage{fancyhdr}
+
+% Configuring the footer with fancyhdr
+\pagestyle{fancy}
+\fancyhf{} % Clear default headers and footers
+\fancyfoot[L]{DOI: \TecniaDoiNumber} % Left footer
+\fancyfoot[R]{TECNIA \TecniaVolDate} % Right footer
+\fancyhead[R]{\number\numexpr\thepage+\TecniaInitialPage-1\relax} % Right header with page number
+\fancyhead[C]{\TecniaAuthorEtAl}
+\renewcommand{\headrulewidth}{0pt} % Remove header rule
+\renewcommand{\footrulewidth}{0pt} % Add a thin footer rule
+
+
+% Setting the title, author, and date
+\title{A Novel Approach to Computational Engineering Optimization}
+\author{John Doe \\ Department of Computer Science \\ University of Example}
+
+
+
+% Beginning the document
+\begin{document}
+
+\onecolumn
+% Generating the title
+\maketitle
+
+\thispagestyle{fancy}
+
+% Adding an abstract section
+\begin{abstract}
+\lipsum[1]
+\end{abstract}
+
+\twocolumn
+
+% Section: Introduction
+\section{Introduction}
+\lipsum[2]
+\cite{example2023} or \cite{example2024}.
+
+\lipsum[3]
+
+% Section: Related Work
+\section{Related work with a very long title}
+\lipsum[4-5]
+
+% Section: Methodology
+\section{Methodology}
+\lipsum[6-7]
+
+
+% Section: Experimental Results
+\section{Experimental results}
+\lipsum[10-11]
+
+% Subsection: Performance Analysis
+\subsection{Analysis}
+\lipsum[12]
+
+% Section: Conclusion
+\section*{Conclusion}
+\lipsum[15]
+
+% Section: Conclusion
+\section*{Acknowledgments}
+\lipsum[1][1-3]
+
+% Adding references from the .bib file
+\bibliography{references}
+
+\end{document}
