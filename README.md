@@ -1,2 +1,2 @@
-# repiama-latex
-repiama-latex
+# TECNIA
+TECNIA
