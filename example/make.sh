@@ -12,3 +12,4 @@ rm -f *.log
 rm -f *.synctex.gz
 rm -f *.run.xml
 rm -f *.bcf
+rm -f *.out
